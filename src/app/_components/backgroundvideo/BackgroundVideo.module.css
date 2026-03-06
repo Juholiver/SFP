@@ -1,0 +1,25 @@
+.videoContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Garante que fique atrás de tudo */
+  overflow: hidden;
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz o vídeo preencher a tela sem distorcer */
+}
+
+/* Camada opcional para escurecer o vídeo e destacar o texto */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+}

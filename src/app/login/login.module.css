@@ -1,0 +1,115 @@
+/* login.module.css */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 20px;
+}
+
+.login-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(62, 39, 35, 0.1); /* Sombra suave em tom marrom */
+  width: 100%;
+  max-width: 400px;
+  border-top: 5px solid #3e2723; /* Detalhe em Marrom Escuro */
+}
+
+.login-title {
+  color: #3e2723; /* Marrom Escuro */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.login-subtitle {
+  color: #795548; /* Marrom Claro */
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+
+.login-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5d4037; /* Marrom Médio */
+  margin-bottom: 8px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #d7ccc8; /* Marrom bem claro */
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+.login-input:focus {
+  border-color: #8d6e63; /* Marrom Claro ao focar */
+}
+
+.login-button {
+  width: 100%;
+  background-color: #3e2723; /* Marrom Escuro */
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background-color: #5d4037; /* Marrom Médio no hover */
+}
+
+.login-button:active {
+  transform: scale(0.98);
+}
+
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #795548;
+}
+
+.login-register-link {
+  color: #3e2723;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-register-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 24px;
+  }
+  
+  .login-title {
+    font-size: 1.75rem;
+  }
+}

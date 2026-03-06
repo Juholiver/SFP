@@ -1,0 +1,32 @@
+.container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;     /* Permite que os cards pulem para a linha de baixo se não couberem */
+  gap: 15px;           /* Espaço entre um card e outro */
+  justify-content: center; /* Centraliza os cards na tela */
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: 10px;         /* Reduz o espaço entre os cards em telas menores */
+    padding: 10px; 
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,153 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.sobre-content {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sobre-content h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color:#fff;
+  text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+font-weight: bold;
+}
+
+.sobre-content p {
+  max-width: 700px;
+  font-size: 22px;
+  margin: 0 auto;
+  color: #000;
+  text-shadow: 
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
+  line-height: 1.6;
+}
+
+/* COMO COMPRAR */
+
+.como-comprar h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 50px;
+  color: #FFF;
+  margin-top: 10px;
+  text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+    font-weight: bold;
+}
+.como-comprar p, h3{
+  text-align: center;
+  font-size: 52px;
+  margin-bottom: 50px;
+  color: #000;
+  text-shadow: 
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 40px 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.number {
+  display: block;
+  color: #3e2723;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+/* Container principal */
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Alinha a imagem e o botão verticalmente ao centro */
+  gap: 12px;           /* Cria o espaçamento entre a imagem e o botão */
+  padding: 10px;
+  
+}
+
+/* Estilização da imagem */
+.contact-image {
+  width: 60px;         /* Ajuste o tamanho conforme necessário */
+  height: 50px;
+  border-radius: 50%;  /* Deixa a imagem redondinha, estilo ícone */
+  object-fit: cover;
+  
+}
+
+/* Estilização do botão */
+.contact-button {
+  background-color: #25d366; /* Verde característico do WhatsApp */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #128c7e; /* Cor um pouco mais escura ao passar o mouse */
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
