@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🛍️ São Francisco Personalizados - E-commerce
+O São Francisco Personalizados é uma plataforma de e-commerce completa, focada em produtos customizados. O projeto foi construído utilizando as tecnologias mais modernas do ecossistema React, garantindo performance, SEO e uma arquitetura escalável.
 
-## Getting Started
+🛠️ Tecnologias de Ponta
+Frontend: Next.js 15+ (App Router)
 
-First, run the development server:
+Linguagem: TypeScript para tipagem estática e segurança.
 
-```bash
+Banco de Dados: MongoDB Atlas com modelagem via Mongoose.
+
+Estado Global: Zustand com middleware persist para manter o carrinho no navegador.
+
+Segurança: Autenticação via JWT com armazenamento em Cookies httpOnly.
+
+🏗️ Arquitetura do Sistema
+O projeto preza pela Separação de Responsabilidades (SoC), facilitando a manutenção e testes:
+
+📂 Estrutura de Pastas
+/app (Routes): Gerencia o roteamento do sistema.
+
+/api: Backend isolado com rotas para Login, Logout, Produtos e Carrinho.
+
+/carrinho: Página dedicada ao gerenciamento de itens selecionados.
+
+/components: Componentes de interface reutilizáveis (Header, Footer, LogoutButton, Card de Produto).
+
+/models: Definição dos Schemas do Mongoose para usuários e carrinhos.
+
+/lib: Configurações centrais, como a conexão única com o banco de dados.
+
+/store: Lógica de negócio do carrinho (adicionar, remover, limpar) via Zustand.
+
+middleware.ts: Guardião das rotas, validando o token JWT antes do acesso a páginas sensíveis.
+
+🔒 Fluxo de Autenticação e Cookies
+Implementamos um fluxo de segurança de nível profissional:
+
+Geração de Token: Ao logar, um JWT é gerado no servidor.
+
+Cookies Seguros: O token é enviado via Set-Cookie com a flag httpOnly, protegendo-o contra ataques de script (XSS).
+
+Middleware de Proteção: O middleware.ts intercepta requisições para /carrinho ou /api/cart, redirecionando usuários não autenticados para /login.
+
+Logout Total: Ao clicar em Sair, o cookie é deletado no servidor e o estado do Zustand é resetado no cliente.
+
+🚀 Como Rodar o Projeto
+1. Requisitos
+Node.js instalado.
+
+Conta no MongoDB Atlas.
+
+2. Variáveis de Ambiente
+Crie um arquivo .env.local na raiz e preencha:
+
+Snippet de código
+MONGODB_URI=sua_url_do_mongodb_atlas
+JWT_SECRET=sua_chave_secreta_para_token
+NEXT_PUBLIC_WHATSAPP_NUMBER=5515999999999
+3. Instalação e Execução
+Bash
+# Instalar dependências
+npm install
+
+# Iniciar em modo de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🌟 Diferenciais do Projeto
+✅ Carrinho Persistente: O usuário não perde os itens ao fechar a aba.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✅ Menu Responsivo: Experiência mobile nativa com menu hambúrguer customizado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+✅ Checkout Conciso: Integração direta com o WhatsApp do vendedor para fechamento de pedido.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ SEO Otimizado: Uso de Metadata do Next.js para melhor ranqueamento.
 
-## Learn More
+👨‍💻 Contribuição
+Faça um Fork do projeto.
 
-To learn more about Next.js, take a look at the following resources:
+Crie uma Branch para sua feature (git checkout -b feature/NovaFuncionalidade).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dê um Commit nas suas mudanças (git commit -m 'Adicionando nova feature').
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dê um Push na Branch (git push origin feature/NovaFuncionalidade).
 
-## Deploy on Vercel
+Abra um Pull Request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido com foco em qualidade por José Mario
