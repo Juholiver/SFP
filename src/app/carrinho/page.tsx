@@ -9,6 +9,16 @@ export default function Carrinho() {
   const { increaseQuantity } = useCartStore()
   const { decreaseQuantity } = useCartStore()
 
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+
+  const handleCheckout = () => {
+    // Cria uma mensagem simples
+    const message = encodeURIComponent(`Olá! Gostaria de finalizar meu pedido com ${cart.length} itens.`);
+    
+    // Abre o WhatsApp
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  };
+
   const total = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -75,8 +85,9 @@ export default function Carrinho() {
       {cart.length > 0 && (
         <div className={styles.summary}>
           <h2>Total: R$ {total.toFixed(2)}</h2>
-          <button className={styles.checkoutButton}>
-            Finalizar Compra
+          <button onClick={handleCheckout} className={styles.checkoutButton}>
+            Finalizar via WhatsApp
+
           </button>
         </div>
       )}
