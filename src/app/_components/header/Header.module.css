@@ -104,6 +104,27 @@
   transition: 0.3s;
 }
 
+.logoutBtn {
+  background: none;
+  border: none;
+  color: inherit; /* Segue a cor dos outros links */
+  font: inherit;  /* Segue a fonte do menu */
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logoutBtn:hover {
+  color: #ff4d4d; /* Opcional: uma cor diferente ao passar o mouse para indicar saída */
+}
+
+/* Ajuste para o item da lista se necessário */
+.sair {
+  display: flex;
+  align-items: center;
+}
+
 @media (max-width: 600px) {
   .container {
     flex-direction: column; /* Transforma as colunas em linhas no mobile */

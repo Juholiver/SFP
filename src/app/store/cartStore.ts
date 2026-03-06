@@ -26,51 +26,54 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       cart: [],
 
+      // Adiciona ao carrinho ou aumenta a quantidade se já existir
       addToCart: (product) => {
-        const existing = get().cart.find(p => p.id === product.id)
+        const { cart } = get()
+        const existingProduct = cart.find((p) => p.id === product.id)
 
-        if (existing) {
+        if (existingProduct) {
           set({
-            cart: get().cart.map(p =>
-              p.id === product.id
-                ? { ...p, quantity: p.quantity + 1 }
-                : p
-            )
+            cart: cart.map((p) =>
+              p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+            ),
           })
         } else {
           set({
-            cart: [...get().cart, { ...product, quantity: 1 }]
+            cart: [...cart, { ...product, quantity: 1 }],
           })
         }
       },
 
-      removeFromCart: (id) =>
+      // Remove o item completamente
+      removeFromCart: (id) => {
         set({
-          cart: get().cart.filter(p => p.id !== id)
-        }),
+          cart: get().cart.filter((p) => p.id !== id),
+        })
+      },
 
+      // Diminui a quantidade (mínimo 1)
       decreaseQuantity: (id) => {
-        const updated = get().cart.map(p =>
-          p.id === id && p.quantity > 1
-            ? { ...p, quantity: p.quantity - 1 }
+        const updatedCart = get().cart.map((p) =>
+          p.id === id && p.quantity > 1 
+            ? { ...p, quantity: p.quantity - 1 } 
             : p
         )
-        set({ cart: updated })
+        set({ cart: updatedCart })
       },
 
+      // Aumenta a quantidade
       increaseQuantity: (id) => {
-        const updated = get().cart.map(p =>
-          p.id === id
-            ? { ...p, quantity: p.quantity + 1 }
-            : p
+        const updatedCart = get().cart.map((p) =>
+          p.id === id ? { ...p, quantity: p.quantity + 1 } : p
         )
-        set({ cart: updated })
+        set({ cart: updatedCart })
       },
 
-      clearCart: () => set({ cart: [] })
+      // Limpa todo o estado (útil no logout)
+      clearCart: () => set({ cart: [] }),
     }),
     {
-      name: "cart-storage"
+      name: "cart-storage", // Nome da chave no LocalStorage
     }
   )
 )

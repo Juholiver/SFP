@@ -2,6 +2,7 @@
 import { useCartStore } from "../store/cartStore"
 import styles from "./carrinho.module.css"
 import Header from "../_components/header/Header"
+import { useEffect } from "react"
 
 export default function Carrinho() {
   const { cart, removeFromCart } = useCartStore()
@@ -12,6 +13,19 @@ export default function Carrinho() {
     (acc, item) => acc + item.price * item.quantity,
     0
   )
+
+  useEffect(() => {
+  const fetchCartFromDB = async () => {
+    const res = await fetch("/api/cart");
+    if (res.ok) {
+      const data = await res.json();
+      // Se sua API retornar o carrinho do banco, atualize o Zustand aqui
+      // useCartStore.setState({ cart: data.produtos }); 
+    }
+  };
+
+  fetchCartFromDB();
+}, []);
 
   return (
     <>
@@ -69,4 +83,8 @@ export default function Carrinho() {
     </div>
     </>
   )
+}
+
+function setCart(data: any): any {
+  throw new Error("Function not implemented.")
 }
