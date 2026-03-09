@@ -1,6 +1,6 @@
 .card {
   width: 220px;        /* Tamanho fixo menor para os cards */
-  background: transparent;
+  background: white;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 15px rgba(148, 100, 92, 0.1);
@@ -11,7 +11,7 @@
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Subida menor para combinar com o card menor */
+  transform: scale(2.0); 
 }
 
 .imagePlaceholder {
@@ -21,7 +21,10 @@
   align-items: center;
   justify-content: center;
   font-size: 3rem;     /* Emoji um pouco menor */
+  transition: transform 0.3s ease;
 }
+
+
 
 .info {
   padding: 15px;       /* Reduzi o padding interno */
@@ -83,3 +86,4 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
